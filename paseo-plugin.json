@@ -1,0 +1,16 @@
+{
+  "id": "paseo-artifact-viewer",
+  "name": "Artifact Viewer",
+  "description": "Preview and edit HTML and React artifacts from Paseo conversations and files.",
+  "translations": {
+    "ko": {
+      "name": "아티팩트 미리보기",
+      "description": "대화와 파일의 HTML·React 결과물을 옆 패널에서 미리보고 수정합니다."
+    }
+  },
+  "requirements": {
+    "paseo": ">=0.16.1 <0.18.0"
+  },
+  "icon": "media/icon.png",
+  "media": ["media/gallery.png", "media/preview.png"]
+}
