@@ -4,7 +4,13 @@ Preview HTML, SVG and React artifacts beside a Paseo conversation, keep their re
 
 ## Install in Paseo
 
-With trusted plugins enabled on your Paseo daemon, install the prebuilt release:
+With trusted plugins enabled on your Paseo daemon, install [version 0.9.3 from npm](https://www.npmjs.com/package/paseo-artifact-viewer/v/0.9.3).
+
+```sh
+paseo plugin add npm:paseo-artifact-viewer@0.9.3
+```
+
+You can also install the same release from GitHub.
 
 ```sh
 paseo plugin add git:shotgun1107/paseo-artifact-viewer --ref v0.9.3
