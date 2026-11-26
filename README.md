@@ -2,6 +2,16 @@
 
 Preview HTML, SVG and React artifacts beside a Paseo conversation, keep their revision history on the daemon, and browse them in the Artifacts library. For data access, external services and limitations, read the [English overview](OVERVIEW.md) or [한국어 소개](OVERVIEW.ko.md).
 
+## Install in Paseo
+
+With trusted plugins enabled on your Paseo daemon, install the prebuilt release:
+
+```sh
+paseo plugin add git:shotgun1107/paseo-artifact-viewer --ref v0.9.3
+```
+
+The release tag contains the runnable plugin and its bundled dependencies. The default branch contains the development source. For a manual installation, download the [0.9.3 release archive](https://github.com/shotgun1107/paseo-artifact-viewer/releases/tag/v0.9.3), extract it, and install the extracted `package` directory.
+
 ## Use the viewer
 
 Ask your agent to create an artifact. A completed publish produces a card under the reply. Click it to open that version beside the conversation. Select **Artifacts** in the sidebar to search the daemon-wide library. Opening a result there fills the main workspace. Back and Forward navigate between the result and the library.
