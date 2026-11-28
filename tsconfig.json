@@ -24,10 +24,8 @@
   "include": [
     "index.client.tsx",
     "index.server.ts",
-    "server/**/*.ts",
-    "client/**/*.ts",
-    "client/**/*.tsx",
-    "shared/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "test/browser*.tsx",
     "test/browser*.mts",
     "test/browser*.mjs"

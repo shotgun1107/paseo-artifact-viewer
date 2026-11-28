@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { observeArtifacts } from "../client/timeline";
-import { ArtifactStore } from "../client/store";
+import { observeArtifacts } from "../src/client/timeline";
+import { ArtifactStore } from "../src/client/store";
 const flush = () => new Promise<void>(resolve => setImmediate(resolve));
 const item = (id: string, body: string, seq = 1) => ({ seqStart: seq, timestamp: String(seq), item: { type: "assistant_message", messageId: id, text: '```html artifact="same"\n<div>' + body + '</div>\n```' } });
 test("history/live overlap is replayed after history, and reconnect replacements remove rewound artifacts", async () => {

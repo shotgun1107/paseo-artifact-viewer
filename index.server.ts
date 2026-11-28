@@ -1,9 +1,9 @@
 import { homedir } from "node:os";
 import { join, resolve, isAbsolute } from "node:path";
 import type { PluginServerContext } from "@getpaseo/plugin/server";
-import { openRepositorySync } from "./server/repository";
-import { ArtifactService } from "./server/service";
-import { registerServer } from "./server/register";
+import { openRepositorySync } from "./src/server/repository";
+import { ArtifactService } from "./src/server/service";
+import { registerServer } from "./src/server/register";
 
 export default function contribute(server: PluginServerContext) {
   const home = process.env.PASEO_HOME ? resolve(process.env.PASEO_HOME) : join(homedir(), ".paseo");

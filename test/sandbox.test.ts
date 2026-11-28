@@ -1,8 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { JSDOM, VirtualConsole } from "jsdom";
-import { buildReactSetup, htmlDocument, readHtmlMessage } from "../client/sandbox";
-import { createPreviewSession } from "../client/preview-session";
+import { buildReactSetup, htmlDocument, readHtmlMessage } from "../src/client/sandbox";
+import { createPreviewSession } from "../src/client/preview-session";
 
 function fixture() { const dom = new JSDOM('<iframe sandbox="allow-scripts"></iframe>', { url: "https://paseo.test" }); return { dom, frame: dom.window.document.querySelector("iframe")! }; }
 test("HTML bridge rejects wrong source, nonopaque origin, tokens and malformed payloads", () => {

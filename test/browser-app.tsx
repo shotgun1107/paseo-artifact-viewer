@@ -2,7 +2,7 @@ import { createElement, memo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import contribute from "../index.client";
 import { FixtureSurfaceControls, FixtureWorkspace, screenRoute, workspaceHost } from "./browser-workspace";
-import { fingerprint } from "../shared/artifacts";
+import { fingerprint } from "../src/shared/artifacts";
 import { harnessState, entry, fileHandle, sessionId, agentHandle, SidebarItemTitle, launchOptions, workspaceId, i18n, resolveText } from "./browser-host";
 
 // The workspace fixture has a real URL and browser history. Its launch flags are captured before navigation.

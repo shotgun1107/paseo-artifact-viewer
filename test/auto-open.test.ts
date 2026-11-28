@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { autoOpenPublishedArtifacts } from "../client/auto-open";
-import { createStoreRegistry } from "../client/store";
+import { autoOpenPublishedArtifacts } from "../src/client/auto-open";
+import { createStoreRegistry } from "../src/client/store";
 
 const flush = () => new Promise<void>(resolve => setImmediate(resolve));
 test("live artifact publication reopens a dismissed panel for its own agent", async () => {

@@ -3,12 +3,19 @@ import { existsSync } from "node:fs";
 import { hostname, userInfo } from "node:os";
 import { join, resolve } from "node:path";
 
-export const copiedFiles = [
-  "paseo-plugin.json", "LICENSE", "README.md", "OVERVIEW.md", "OVERVIEW.ko.md",
-  "THIRD_PARTY_NOTICES.md", "media/gallery.png", "media/preview.png", "media/icon.png",
-];
+export const copiedFiles = {
+  "paseo-plugin.json": "paseo-plugin.json",
+  "LICENSE": "LICENSE",
+  "README.md": "docs/package-readme.md",
+  "OVERVIEW.md": "docs/overview.md",
+  "OVERVIEW.ko.md": "docs/overview.ko.md",
+  "THIRD_PARTY_NOTICES.md": "docs/third-party-notices.md",
+  "media/gallery.png": "media/gallery.png",
+  "media/preview.png": "media/preview.png",
+  "media/icon.png": "media/icon.png",
+};
 export const releaseFiles = [
-  ...copiedFiles, "package.json", "index.client.ts", "index.server.ts", "THIRD_PARTY_LICENSES.txt",
+  ...Object.keys(copiedFiles), "package.json", "index.client.ts", "index.server.ts", "THIRD_PARTY_LICENSES.txt",
 ].sort();
 
 export function releaseDirectory(root, version) {

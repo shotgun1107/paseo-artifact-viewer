@@ -1,6 +1,6 @@
-import type { SqliteArtifactRepository } from "../server/repository";
-import { ArtifactService } from "../server/service";
-import { registerServer } from "../server/register";
+import type { SqliteArtifactRepository } from "../src/server/repository";
+import { ArtifactService } from "../src/server/service";
+import { registerServer } from "../src/server/register";
 
 /** Isolated protocol fixture, never connects to the user's daemon or providers. */
 export function serverHarness(repository: SqliteArtifactRepository) {

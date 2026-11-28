@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { LIBRARY_SCREEN_ID, chatDetailParams, createLibraryNav, detailFromParams, libraryScreenTitle, listBelow, makeSheet, renameSheetEntry, replaceWithList, requestDetailParams } from "../client/library-route";
+import { LIBRARY_SCREEN_ID, chatDetailParams, createLibraryNav, detailFromParams, libraryScreenTitle, listBelow, makeSheet, renameSheetEntry, replaceWithList, requestDetailParams } from "../src/client/library-route";
 
 /** `window.navigation`, `location` and `history` as the library screen sees them, restored afterwards. */
 function inBrowser(href: string, entries: { index: number; urls: (string | null)[] | "throws" } | undefined, run: (spy: { replaced: string[]; states: { state: unknown; url: string }[] }) => void) {

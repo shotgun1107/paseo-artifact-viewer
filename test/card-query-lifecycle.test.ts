@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { DatabaseSync } from "node:sqlite";
 import type { PaseoApi } from "@getpaseo/client";
-import { SqliteArtifactRepository } from "../server/repository";
-import { ArtifactService } from "../server/service";
+import { SqliteArtifactRepository } from "../src/server/repository";
+import { ArtifactService } from "../src/server/service";
 
 function setup() {
   const db = new DatabaseSync(":memory:");

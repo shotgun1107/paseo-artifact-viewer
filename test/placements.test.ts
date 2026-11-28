@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createPlacementIndex, visiblePlacements, type PlacementEntry, type PlacementPage } from "../client/placements";
-import { fingerprint } from "../shared/artifacts";
+import { createPlacementIndex, visiblePlacements, type PlacementEntry, type PlacementPage } from "../src/client/placements";
+import { fingerprint } from "../src/shared/artifacts";
 
 const flush = () => new Promise<void>(resolve => setImmediate(resolve));
 const notice = (artifactId: string, artifactVersion = 1, extra: object = {}) => ({ artifactId, artifactVersion, title: artifactId, format: "html" as const, originKind: "extract" as const, ...extra });

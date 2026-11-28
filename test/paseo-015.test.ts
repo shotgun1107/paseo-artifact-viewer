@@ -4,10 +4,10 @@ import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { DatabaseSync } from "node:sqlite";
-import { SqliteArtifactRepository } from "../server/repository";
-import { ArtifactService } from "../server/service";
-import { registerServer } from "../server/register";
-import { getArtifactGuide, ARTIFACT_GUIDE_MARKER } from "../shared/agent-guide";
+import { SqliteArtifactRepository } from "../src/server/repository";
+import { ArtifactService } from "../src/server/service";
+import { registerServer } from "../src/server/register";
+import { getArtifactGuide, ARTIFACT_GUIDE_MARKER } from "../src/shared/agent-guide";
 
 test("Paseo SDK lifecycle adapter registers working create, session and turn hooks", async () => {
   const require = createRequire(import.meta.url);

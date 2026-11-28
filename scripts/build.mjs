@@ -11,12 +11,10 @@ import { copiedFiles, releaseDirectory, releaseFiles, verifyReleaseContent } fro
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 function sourceSnapshot() {
-  const inputs = [...copiedFiles, "index.client.tsx", "index.server.ts", "package.json", "package-lock.json",
+  const inputs = [...Object.values(copiedFiles), "index.client.tsx", "index.server.ts", "package.json", "package-lock.json",
     "scripts/build.mjs", "scripts/bundled-licenses.mjs", "scripts/check-client-registration.mjs", "scripts/release-package.mjs", "tsconfig.json", "licenses/saxes-6.0.0.txt"];
-  for (const folder of ["server", "client", "shared"]) {
-    for (const name of readdirSync(join(root, folder), { recursive: true })) {
-      if (/\.(ts|tsx)$/.test(name)) inputs.push(folder + "/" + name.replaceAll("\\", "/"));
-    }
+  for (const name of readdirSync(join(root, "src"), { recursive: true })) {
+    if (/\.(ts|tsx)$/.test(name)) inputs.push("src/" + name.replaceAll("\\", "/"));
   }
   return Object.fromEntries(inputs.sort().map(file => [file, createHash("sha256").update(readFileSync(join(root, file))).digest("hex")]));
 }
@@ -61,7 +59,7 @@ writeFileSync(join(output, "server-metafile.json"), JSON.stringify(backend.metaf
 writeFileSync(join(output, "server-build-verification.json"), JSON.stringify({ title: "아티팩트 서버 빌드 검증", version: sourcePackage.version, bytes: Buffer.byteLength(serverBody), sha256: createHash("sha256").update(serverBody).digest("hex"), database: "node:sqlite; actual plugin-process availability must be verified before deployment", scope: "Isolated Node build; not installed or run inside Paseo" }, null, 2));
 const { name, version, type, description, license, repository, homepage, keywords } = sourcePackage;
 const packageMetadata = { name, version, type, description, license, repository, homepage, keywords, files: releaseFiles };
-const payload = new Map(copiedFiles.map(file => [file, readFileSync(join(root, file))]));
+const payload = new Map(Object.entries(copiedFiles).map(([file, source]) => [file, readFileSync(join(root, source))]));
 payload.set("package.json", Buffer.from(JSON.stringify(packageMetadata, null, 2) + "\n"));
 payload.set("index.client.ts", browserModule.outputFiles[0].contents);
 payload.set("index.server.ts", Buffer.from(serverBody));

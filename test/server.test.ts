@@ -4,14 +4,14 @@ import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
-import { SqliteArtifactRepository, openRepository } from "../server/repository";
-import { ArtifactService } from "../server/service";
-import { registerServer } from "../server/register";
-import { observeArtifacts } from "../client/timeline";
-import { RemoteArtifactStore } from "../client/remote-store";
-import { artifactList, artifactGet, artifactHistory, artifactSaveEdit, artifactRestoreVersion, publishSchema, type MutationResult } from "../shared/contracts";
-import { artifactSetLocale } from "../shared/locale";
-import { getArtifactGuide } from "../shared/agent-guide";
+import { SqliteArtifactRepository, openRepository } from "../src/server/repository";
+import { ArtifactService } from "../src/server/service";
+import { registerServer } from "../src/server/register";
+import { observeArtifacts } from "../src/client/timeline";
+import { RemoteArtifactStore } from "../src/client/remote-store";
+import { artifactList, artifactGet, artifactHistory, artifactSaveEdit, artifactRestoreVersion, publishSchema, type MutationResult } from "../src/shared/contracts";
+import { artifactSetLocale } from "../src/shared/locale";
+import { getArtifactGuide } from "../src/shared/agent-guide";
 import contributeServer from "../index.server";
 
 test("publish accepts the legacy kind field and rejects a mistyped update target", () => {

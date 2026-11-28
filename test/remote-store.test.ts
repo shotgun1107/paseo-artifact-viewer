@@ -3,9 +3,9 @@ import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve, join } from "node:path";
-import { SqliteArtifactRepository } from "../server/repository";
-import { RemoteArtifactStore } from "../client/remote-store";
-import { observeArtifacts } from "../client/timeline";
+import { SqliteArtifactRepository } from "../src/server/repository";
+import { RemoteArtifactStore } from "../src/client/remote-store";
+import { observeArtifacts } from "../src/client/timeline";
 import { serverHarness } from "./server-harness";
 
 /**

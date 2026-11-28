@@ -1,8 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { extractArtifacts, artifactMessageText, artifactPrompt, MAX_SOURCE_LENGTH } from "../shared/artifacts";
-import { ArtifactStore } from "../client/store";
-import { buildReactSetup } from "../client/sandbox";
+import { extractArtifacts, artifactMessageText, artifactPrompt, MAX_SOURCE_LENGTH } from "../src/shared/artifacts";
+import { ArtifactStore } from "../src/client/store";
+import { buildReactSetup } from "../src/client/sandbox";
 
 const html = (id: string, content: string) => `\`\`\`html artifact="${id}" title="계산기"\n<div>${content}</div>\n\`\`\``;
 test("fenced artifacts preserve identity across messages; ordinary snippets are not claimed", () => {

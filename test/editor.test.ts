@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import type { PluginFile, PluginFileEvent } from "@getpaseo/plugin/client";
-import { createFileEditor } from "../client/file-editor";
+import { createFileEditor } from "../src/client/file-editor";
 
 const flush = () => new Promise<void>(resolve => setImmediate(resolve));
 function fakeFile() {

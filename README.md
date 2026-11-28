@@ -1,48 +1,52 @@
+<img src="media/icon.png" width="64" height="64" align="right" alt="">
+
 # Paseo Artifact Viewer
 
-Preview HTML, SVG and React artifacts beside a Paseo conversation, keep their revision history on the daemon, and browse them in the Artifacts library. For data access, external services and limitations, read the [English overview](OVERVIEW.md) or [한국어 소개](OVERVIEW.ko.md).
+Preview HTML, SVG, and React beside your [Paseo](https://github.com/getpaseo/paseo) conversation. Open the version attached to an agent's reply, then find it again in the Artifacts library.
 
-## Install in Paseo
+[![npm version](https://img.shields.io/npm/v/paseo-artifact-viewer)](https://www.npmjs.com/package/paseo-artifact-viewer)
+[![CI](https://github.com/shotgun1107/paseo-artifact-viewer/actions/workflows/ci.yml/badge.svg)](https://github.com/shotgun1107/paseo-artifact-viewer/actions/workflows/ci.yml)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-With trusted plugins enabled on your Paseo daemon, install [version 0.9.3 from npm](https://www.npmjs.com/package/paseo-artifact-viewer/v/0.9.3).
+[User guide](docs/overview.md) · [한국어 안내](docs/overview.ko.md) · [Releases](https://github.com/shotgun1107/paseo-artifact-viewer/releases) · [Contributing](CONTRIBUTING.md)
 
-```sh
+## Install
+
+Use Paseo desktop or web with a daemon running Paseo **0.16.1 through 0.17.x** and a Node runtime with SQLite support. Enable trusted plugins on the daemon, then install the [published release](https://www.npmjs.com/package/paseo-artifact-viewer/v/0.9.3).
+
+~~~sh
 paseo plugin add npm:paseo-artifact-viewer@0.9.3
-```
+~~~
 
-You can also install the same release from GitHub.
+<details>
+<summary>Install from GitHub</summary>
 
-```sh
+~~~sh
 paseo plugin add git:shotgun1107/paseo-artifact-viewer --ref v0.9.3
-```
+~~~
 
-The release tag contains the runnable plugin and its bundled dependencies. The default branch contains the development source. For a manual installation, download the [0.9.3 release archive](https://github.com/shotgun1107/paseo-artifact-viewer/releases/tag/v0.9.3), extract it, and install the extracted `package` directory.
+For a folder install, extract the [release archive](https://github.com/shotgun1107/paseo-artifact-viewer/releases/tag/v0.9.3) and select its `package` directory.
 
-## Use the viewer
+</details>
 
-Ask your agent to create an artifact. A completed publish produces a card under the reply. Click it to open that version beside the conversation. Select **Artifacts** in the sidebar to search the daemon-wide library. Opening a result there fills the main workspace. Back and Forward navigate between the result and the library.
+## Use it in Paseo
 
-Use `/artifact-guide` in a conversation that predates installation. `/artifact` opens the library. With a description, the command asks the current agent to make the artifact. Pin a result, export its source or restore an earlier version from the viewer. Restoring saves a new revision.
+- **From a conversation** — Ask the agent to make an artifact. Click the card under its reply to open that version alongside the chat. In an older conversation, run `/artifact-guide` to give the agent the publishing instructions.
+- **From the library** — Select **Artifacts** in the sidebar or run `/artifact`. Search across conversations on the same daemon, pin results, export the source, or restore an earlier version as a new revision.
 
-## Build and verify
+![An HTML habit tracker open beside its conversation in Paseo](media/preview.png)
 
-Use Node with built-in SQLite support and the versions recorded in the lockfile. The supported Paseo host range is `>=0.16.1 <0.18.0`.
+<details>
+<summary>See the Artifacts library</summary>
 
-```sh
-npm ci --ignore-scripts --no-audit --no-fund
-npm run typecheck
-npm test
-npm run build
-npm run verify:package
-npm run test:browser:package
-```
+![The Artifacts library displaying a grid of saved results](media/gallery.png)
 
-Set `ARTIFACT_TEST_BROWSER` to a Chromium or Edge executable when the browser harness cannot find one. The build creates a distribution directory and a tarball with the client and server entries, listing media, documentation and license texts. The source package is private. Release checks should use the generated tarball.
+</details>
 
-## Back up local data
+## Data and previews
 
-The daemon keeps its database at `$PASEO_HOME/plugin-data/paseo-artifact-viewer/artifacts.sqlite`. Use SQLite's online backup facility, or stop the daemon before making a filesystem backup. A live database can have committed changes in its WAL file. Keep a consistent backup and the previous plugin version before upgrading. Restoring an older snapshot also rolls back artifact changes made after the snapshot.
+The daemon stores artifacts locally in SQLite. New agents receive a publishing guide in their stored instructions. HTML and SVG previews start with external resources blocked. In-app React previews send source to CodeSandbox after consent. See the [user guide](docs/overview.md) for storage, external requests, and platform limits.
 
-## License
+## Development
 
-This plugin is distributed under the [MIT license](LICENSE). See the [third-party notices](THIRD_PARTY_NOTICES.md) for design references, bundled components and font licensing. The distribution also includes the full dependency licenses in `THIRD_PARTY_LICENSES.txt`.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the source layout, local checks, and package build. The code is [MIT-licensed](LICENSE). Bundled dependencies and design references are listed in the [third-party notices](docs/third-party-notices.md).

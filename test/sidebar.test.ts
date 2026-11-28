@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { SidebarBroker } from "../server/sidebar";
-import type { SidebarRequest } from "../shared/sidebar";
+import { SidebarBroker } from "../src/server/sidebar";
+import type { SidebarRequest } from "../src/shared/sidebar";
 
 test("only a receipt for the exact live request, conversation, artifact and revision reports opened", async () => {
   const broker = SidebarBroker.forOpen(800);

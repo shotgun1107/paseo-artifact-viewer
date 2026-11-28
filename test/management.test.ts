@@ -3,9 +3,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
 import { join } from "node:path";
-import { SqliteArtifactRepository } from "../server/repository";
-import { LocalWebPreview } from "../server/web-preview";
-import { RemoteArtifactStore } from "../client/remote-store";
+import { SqliteArtifactRepository } from "../src/server/repository";
+import { LocalWebPreview } from "../src/server/web-preview";
+import { RemoteArtifactStore } from "../src/client/remote-store";
 import { serverHarness } from "./server-harness";
 
 const session = "management-test";

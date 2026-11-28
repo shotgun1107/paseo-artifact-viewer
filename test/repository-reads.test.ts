@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { DatabaseSync } from "node:sqlite";
-import { SqliteArtifactRepository } from "../server/repository";
+import { SqliteArtifactRepository } from "../src/server/repository";
 
 class ObservedDatabase extends DatabaseSync {
   reads: string[][] = [];

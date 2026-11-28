@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
 import type { PaseoApi } from "@getpaseo/client";
-import { SqliteArtifactRepository } from "../server/repository";
-import { staticThumbnail, withSourceNames, type LibraryRow } from "../server/library";
+import { SqliteArtifactRepository } from "../src/server/repository";
+import { staticThumbnail, withSourceNames, type LibraryRow } from "../src/server/library";
 
 test("global library searches current display titles and paginates artifacts across sessions", () => {
   const db = new DatabaseSync(":memory:");
